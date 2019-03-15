@@ -1,0 +1,33 @@
+[Version]
+Version=1.0.0.0
+
+[Klient-Monitor.exe <0009>]
+Dest=$(AppPath)
+Date=28.06.2018
+Time=17:14
+Version=1.0.0.0
+CABFilename=Klient-Monitor.CAB
+CABINFFile=Klient-Monitor.INF
+Uses1=msvbvm60.dll
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=BGV2ActiveXPro.ocx
+Uses8=FM20.DLL
+Uses9=MSCOMM32.OCX
+Uses10=threed32.ocx
+Uses11=tabctl32.ocx
+
+[BGV2ActiveXPro.ocx <0009>]
+Dest=$(WinSysPath)
+Date=05.06.2012
+Time=01:29
+Version=6.9.0.0
+
+[FM20.DLL <0009>]
+Dest=$(WinSysPath)
+Date=18.06.2018
+Time=03:44
+Version=16.0.9330.2014

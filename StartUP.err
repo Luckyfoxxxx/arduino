@@ -1,0 +1,2 @@
+Error : 111   Line :   11    SUB or FUNCTION not DECLARED [SENDTOGSM]  , in File : E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\StartUP.bas
+Error : 93    Line :   12    Variable not dimensioned [WAITFOR("OK" , 100000)]  , in File : E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\StartUP.bas

@@ -1,0 +1,2 @@
+Error : 97    Line :   1     SUB or FUNCTION must be DECLARED first [SENDSMS]  , in File : E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\GSM.bas
+Error : 93    Line :   8     Variable not dimensioned [WAITFOR("OK" , 5000)]  , in File : E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\GSM.bas

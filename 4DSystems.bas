@@ -1,0 +1,400 @@
+
+'Reports and commands from/to 4D Systems
+
+'Compass display
+'01 1B 00 00 03 19  Where 03= 6 degrees.
+'01 1B 00 01 2C 37  Displays NOT VALID
+
+'Compass heading;
+'02 00 03 33 35 38 3F  String where 03=number of char then three asc
+
+'Compass Symbol
+'01 1B 01 00 00 1B  'Symbol OFF
+'01 1B 01 00 01 1A  'Symbol ON
+
+'GPS Symbol
+'01 1B 02 00 00 18 Symbol OFF
+'01 1B 02 00 01 19 Symbol ON
+
+'Hold Button Report:
+'07 21 00 00 01 27   Going from Hold to Holding
+'07 21 00 00 00 26   Going from Holding to Hold.
+
+'Hold Button Command:
+'01 21 00 00 00 20   Set HOLD
+'01 21 00 00 01 21   Set HOlding
+
+'Coarse to HOLD;
+'02 01 03 32 35 35 32  Set to 255
+
+'LED Command;
+'01 13 00 00 00 12  LED OFF
+'01 13 00 00 01 13  LED ON
+
+'Rudder Meter;
+'01 07 00 00 14 12  Set Rudder to Center (20).... 14=H20 (0-40)
+'01 07 00 00 00 06  Set Rudder MAX STB   (0)
+'01 07 00 00 28 2E  Set Rudder MAX Port  (40)
+'Rudder Values;
+'02 03 01 30 30 (0)
+
+'Gyro Meter;
+'01 07 01 00 0A 0D  Set Gyro to Center (10) ..... 0A=H10  (0-20)
+'01 07 01 00 00 07  Set Gyro MAX STB   (0)
+'01 07 01 00 14 13  Set GYRO MAX Port  (20)
+'Gyro Values;
+'02 04 01 30 37 (0)
+
+'Warning Text.
+'02 06  X       X=Number of char.. then Chars then CRC.
+
+
+'Speed to slow.
+'02 05  X
+'02 05 00 07  OFF
+
+dim Rudder4D as integer
+dim Gyro4d as integer
+dim Heading4D as integer
+dim HoldCoarse4D as integer
+dim HoldLed4D as integer
+dim holdbtn0 as integer
+dim holdbtn1 as integer
+dim GPSSymbol0 as integer
+dim GPSSymbol1 as integer
+dim CompassSymbol0 as integer
+dim CompassSymbol1 as integer
+Dim Max4DFault as integer
+
+
+Sub Display4D
+
+
+  if speedwarning>0 then
+    decr speedwarning
+    if speedwarning=0 then
+     call displaystr(2,5,0,"") 'Remove Speed string
+     getack
+    End if
+  End if
+
+
+  led4d=1
+  if holding=1 then
+    if holdbtn1=0 then
+      holdbtn1=1
+      holdbtn0=0
+      call printd(1,1,33,0,0,1)  'Set HoldBtn to HOLDIng.
+      getack
+      holdcoarse4d=-1
+    end if
+    toggle holdingled
+    'print "Holding=";Holding;" Led=";Holdled4d
+    if holdled4d=1 then
+      holdled4d=0
+      call printd(1,1,19,0,0,0) 'Turn OFF LED
+      getack
+    Else
+      holdled4d=1
+      call printd(1,1,19,0,0,1) 'Turn ON LED
+      getack
+    ENd if
+    'Coarsetohold
+    if coarsetohold<>holdcoarse4d then
+      holdcoarse4d=coarsetohold
+      '02 01 03 32 35 35 32  Set to 255
+      xl=coarsetohold/10
+      string4d=str(xl)
+      string4d=format(string4d,"000")
+      call displaystr(2,1,3,string4d)
+      getack
+    end if
+  else
+    if holdbtn0=0 then
+      holdbtn1=0
+      holdbtn0=1
+      call printd(1,1,19,0,0,0) 'Turn OFF LED
+      getack
+      string4d="- - -"
+      call displaystr(2,1,5,string4d)
+      getack
+      call printd(1,1,33,0,0,0)  'Set HoldBtn to HOLD.
+      getack
+
+    end if
+  ENd if
+
+
+  'Display GPSSymbol
+  if gpsok =1 then
+    if gpssymbol1=0 then
+      gpssymbol1=1
+      gpssymbol0=0
+      Call Printd(1 , 1 , 27 ,2 , 0,1)
+      getack
+    End if
+  Else
+    if gpssymbol0=0 then
+      gpssymbol0=1
+      gpssymbol1=0
+      Call Printd(1 , 1 , 27 ,2 , 0,0)
+      getack
+    End if
+  End if
+
+ 'Display CompassSymbol
+  if gpsok =1 then
+    if compassSymbol1=0 then
+      compassSymbol1=1
+      compassSymbol0=0
+      Call Printd(1 , 1 , 27 ,1 , 0,1)
+      getack
+    End if
+  Else
+    if compassSymbol0=0 then
+      compassSymbol0=1
+      compassSymbol1=0
+      Call Printd(1 , 1 , 27 ,1 , 0,0)
+      getack
+    End if
+  End if
+
+
+
+  'Display Rudder.
+
+  xi=map(rudder,ruddermin,ruddermax,0,40)
+
+  xi=rudder  '**********************Must be removed
+  'print "rudder=";rudder;" Xi=";xi;" max=";ruddermax;" min=";ruddermin
+  if xi<>rudder4d then
+    rudder4d=xi
+    xi=40-xi
+
+    'Meter first.
+    'Call Printd(4 , 1 , 7 , 0 , 0 , xi) '***********Must be enabled
+    'getack                              '***********Must be enabled
+    'Digits
+    'xi=xi-20                             '***********Must be enabled
+    string4d=str(xi)
+    if len(string4d)=1 then
+      string4D="    " + string4d
+    elseif len(string4d)=2 then
+      string4D="  " +string4D
+    else
+      string4d=" "+string4d
+    End if
+    B=len(string4D)
+    call displaystr(02, 03, B, string4d)
+    getack
+  end if
+
+  'Display Gyro.
+  'dim OldGyrosum as integer
+ ' PRINT GYROSUM
+  if gyrocount>0 then
+    yi=gyrosum/gyrocount
+  else
+    yi=gyrosum
+  End if
+  'yi=oldgyrosum-gyrosum
+  'oldgyrosum=gyrosum
+  'print "Gyrocount=";gyrocount;" Gyrosum=";Gyrosum;" YI=";yi
+  gyrosum=0
+  gyrocount=0
+  if yi<-20 then yi=-20
+  if yi>20 then yi=20
+  if yi<>gyro4d then
+    gyro4d=yi
+    yi=yi+20
+    yi=40-yi
+    'Meter first.
+    Call Printd(4 , 1 , 7 , 1 , 0 , yi)
+    getack
+    'Digits
+    yi=yi-20
+    string4d=str(yi)
+    if len(string4d)=1 then
+      string4D="    " + string4d
+    elseif len(string4d)=2 then
+      string4D="  " +string4D
+    End if
+    B=len(string4D)
+    call displaystr(02, 04, B, string4d)
+    getack
+  end if
+
+
+  'Display heading
+  'Use GPS if present and speed>2 knot
+ ' if gpsspeed>20 then
+ '   xl=gpsheading/10
+ ' else
+    xl=heading/10
+ ' End if
+  if xl<>heading4d then
+    heading4d=xl
+    string4d=str(xl)
+    string4d=format(string4d,"000")
+    call displaystr(2,0,3,string4d)
+    getack
+    xi=xl/2
+    call printd(4,1,29,0,0,xi)  'Set Compass display to coarse.
+  end if
+  led4d=0
+end sub
+
+
+
+
+
+Sub Displaystr(byval A As Byte , Byval B As Byte , Byval C As Byte , Byval Stringen As String)
+  Dim Ds As String * 1
+  'A & B are Object adress.
+  'Third byte is number of bytes in string
+   Crc = A
+   Print #2 , Chr(a);
+   waitus 40
+   Crc = Crc Xor B
+   Print #2 , Chr(b);
+   waitus 40
+   Crc = Crc Xor C
+   Print #2 , Chr(c);
+   waitus 40
+   if len(stringen)>0 then
+     For C = 1 To Len(stringen)
+       Ds = Mid(stringen , C , 1)
+       Crc = Crc Xor Asc(ds)
+       Print #2 , Ds;
+       waitus 40
+     Next
+   end if
+   Print #2 , Chr(crc);
+End Sub
+
+
+Sub Printd(byval quantity As Byte , byval Dbit1 As Byte , byval Dbit2 As Byte , byval Dbit3 As Byte , byval Dbit4 As Byte , Byval Value As Integer)
+  Crc = Dbit1
+  Print #2 , Chr(dbit1);
+  waitus 20
+  'print dbit1;",";
+  Crc = Crc Xor Dbit2
+  Print #2 , Chr(dbit2);
+  waitus 60
+  'print dbit2;",";
+  Crc = Crc Xor Dbit3
+  Print #2 , Chr(dbit3);
+  waitus 60
+  'print dbit3;",";
+  If Quantity = 4 Then
+    Ehbyte = High(value)
+    Crc = Crc Xor Ehbyte
+    Print #2 , Chr(ehbyte);
+    waitus 60
+   ' print ehbyte;",";
+    Elbyte = Low(value)
+    Crc = Crc Xor Elbyte
+    Print #2 , Chr(elbyte);
+    waitus 60
+    'print elbyte;",";
+  elseIf Quantity = 3 Then
+
+
+  else
+    Crc = Crc Xor dbit4
+    Print #2 , Chr(dbit4);
+    waitus 60
+    'print dbit4;",";
+    Crc = Crc Xor value
+    Print #2 , Chr(value);
+    waitus 60
+   ' print value;" ";CRC
+
+  End If
+  Print #2 , Chr(crc);
+  'print crc
+End Sub
+
+
+
+Sub Getack()
+Dim MaxAck as integer
+char=0
+MaxAck=0
+While MaxAck < 200
+   If Ischarwaiting(#2) > 0 Then
+      Get #2 , char
+      if Ischarwaiting(#2) =0 then goto getackend
+   End If
+   Incr MaxAck
+   Waitms 1
+Wend
+Getackend:
+if char<>6 then
+  print "Ack Not Right: " ;char; " BLR=";MaxAck
+  incr max4dfault
+  if max4dfault>5 then
+    led4d=0
+    goto Starten
+  End if
+else
+  max4dfault=0
+end if
+End Sub
+
+
+sub Get4D()
+'  disable int5
+  'Check if display is talking
+  'But for maximum 2ms
+  Maxintime = 0
+  Rmax = 0
+  While Maxintime < 200
+    If Ischarwaiting(#2) > 0 Then
+      Get #2 , char
+      'print chr(char);
+      if char=6 then goto Gresponse
+      Rmax = Rmax + 1
+      If Rmax = 1 Then
+        Crc = char
+      Else
+        Crc = Crc Xor char
+      End If
+      Rarr(rmax) = char
+      If Crc = 0 and rmax>5 Then Goto GResponse
+      Maxintime =0
+    Else
+      Incr Maxintime
+      Waitus 10
+    End If
+  Wend
+
+GResponse:
+
+'  enable int5
+end sub
+
+
+
+Function Map(byval Xm as integer, byval minx as integer, byval maxx as integer, byval miny as integer, byval maxy as integer) as integer
+dim xmap as long
+dim ym as long
+dim ml as long
+dim xrange as long
+xmap=xm-minx
+if xmap<0 then xmap=0
+xmap=xmap*100
+xl=maxx-minx
+xl=xmap/xl
+
+
+
+xrange=maxy-miny
+ym=xrange*xl
+ym=ym/100
+'xmap=miny+ym
+if ym<miny then ym=miny
+if ym>maxy then ym=maxy
+map=ym
+
+end function

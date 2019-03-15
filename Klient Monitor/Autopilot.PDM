@@ -1,0 +1,185 @@
+[Root]
+Most Recent Package=Standard Setup Package 1
+
+
+[Package|Dep File 1|Root]
+SubWizProgID=PDWizard.DepPkgSubWiz
+BuildFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor
+
+[Package|Dep File 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Dep File 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Dep File 1|Files Found]
+
+[Package|Dep File 1|Files Released]
+
+[Package|Dep File 1|Missing Dependency Information]
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=
+
+[Package|Dep File 1|Out-of-Date Dependency Information]
+C:\Windows\SysWOW64\MSCOMM32.OCX=
+
+[Package|Dep File 1|Files Added]
+
+[Package|Dep File 1|Files Removed]
+
+[Package|Dep File 1|Files In Project]
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.exe=Yes
+C:\Windows\System32\msvbvm60.dll=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=Yes
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=Yes
+C:\Windows\SysWOW64\MSCOMM32.OCX=Yes
+C:\Windows\SysWOW64\threed32.ocx=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Windows\SysWOW64\tabctl32.ocx=Yes
+
+[Package|Dep File 1|Configure Registry Files]
+Applicable=
+
+[Package|Dep File 1|Configure Remote Servers]
+Applicable=
+
+[Package|Dep File 1|Install Locations]
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=$(WinSysPath)
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\MSCOMM32.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\threed32.ocx=$(WinSysPath)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Windows\SysWOW64\tabctl32.ocx=$(WinSysPath)
+
+[Package|Dep File 1|Configure Shared Files]
+Applicable=
+
+[Package|Dep File 1|DepFile]
+DepCabFile=Klient-Monitor.CAB
+DepCabRun=Klient-Monitor.INF
+
+[Package|Dep File 1|Package]
+PackageFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor
+ProjectFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor
+ServerSideCab=
+File1=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.DEP
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Package
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+C:\Windows\SysWOW64\MSCOMM32.OCX=
+
+[Package|Standard Setup Package 1|Files Added]
+
+[Package|Standard Setup Package 1|Files Removed]
+
+[Package|Standard Setup Package 1|Files In Project]
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.exe=Yes
+C:\Windows\System32\msvbvm60.dll=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=Yes
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=Yes
+C:\Windows\SysWOW64\MSCOMM32.OCX=Yes
+C:\Windows\SysWOW64\threed32.ocx=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Windows\SysWOW64\tabctl32.ocx=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=$(WinSysPath)
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\MSCOMM32.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\threed32.ocx=$(WinSysPath)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Windows\SysWOW64\tabctl32.ocx=$(WinSysPath)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.exe=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=Innstall Autopilot
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=Autopilot
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|Autopilot]
+Icon1=Klient-Monitor.exe
+Title1=Autopilot
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Package
+ProjectFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor
+ServerSideCab=
+File1=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Package\setup.exe
+File2=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Package\Setup.Lst
+File3=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Package\Klient-Monitor.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

@@ -1,0 +1,156 @@
+
+HoldHeading:
+
+'Coarse computing and correcting is done once every Rudderlag timeframe.
+'Trend is the last timeframe relative coarse shift.
+'0 to 99 is 0 to 9.9 encreasing degrees shift,
+   'And will require Port rudder compensation
+'100 to 200 is 0 to 9.9 decreasing degrees shift,
+   'And will require a Starboard rudder compensation.
+
+'Finn først ut hvor mye vi avviker fra kursen.
+
+
+'Positive XL indicates coarse is Stb of Hold.
+OC=heading-coarsetohold
+if OC<-1800 then OC=OC+3600
+if OC>1800 then OC=OC-3600
+RT=OC-LastOC 'Positive betyr at båten dreier styrbord
+
+print "OC=";oc;" RT=";rt
+'oc=oc-XL
+'if lastoc>0 and oc>0 then
+'   lastoc=oc
+'   oc=-oc
+'elseif
+'   lastoc<0 and os>0 then
+'   lastoc=oc
+'   oc=-oc
+'End if
+LastCorrection=0                  ''100ms =1560 ticks
+  'Kursjustering må gjøres
+  if OC>20 then  'Vi er for mye Stb!
+    if OC>LastOC then 'Bare turn om kursdifferansen har øket
+      Lastcorrection=1
+      pumptime=oc*150
+      if lastturn=0 then
+        pumptime=pumptime+700   'Rudderlag=40ms..
+      End if
+      if pumptime>6000 then pumptime=6000
+      timer1=timermax-pumptime
+      goport=1
+      start timer1
+      LastTurn=1
+      working=1
+      'gosub centerrudder
+    else
+      if OC>0 and OC<50 then
+        if RT<-10 then
+          LastCorrection=2
+          timer1=timermax-1500
+          gostb=1
+          start timer1
+          lastturn=0
+          working=1
+        end if
+      end if
+    end if
+  end if
+  if OC<-20 then  'Vi er for mye Port!
+    if OC<lastOC then 'Bare turn om kursdifferansen har øket
+      LastCorrection=3
+      pumptime=abs(oc)*150
+
+      if lastturn=1 then
+        pumptime=pumptime+700
+      End if
+      if pumptime>6000 then pumptime=6000
+      timer1=timermax-pumptime
+      gostb=1
+      start timer1
+      lastturn=0
+      working=1
+    else
+      if oc<-50 and RT>10 then
+        LastCorrection=4
+        timer1=timermax-1500
+        goport=1
+        start timer1
+        lastturn=1
+        working=1
+      end if
+    end if
+  End if
+
+lastoc=oc
+return
+
+
+
+
+'FindNeutral:
+'If rudder and coarse is stable for 10 readings (10 times RudderLag)
+'we asume the rudder is in Neutral.
+'This calculation is continous as Neutral can change depending on currents,
+'wind and waves
+
+'Adcin 4, rudder
+'neutralno=neutralno+1
+'if tmprudder=rudder then
+'  if heading=ncoarse then
+'    if neutralno=10 then
+'      'Set new Rudder Neutral position
+'      Write $32, rudder
+'      RudderNeutral=Rudder
+'      neutralno=0
+'    Endif
+'  else
+'    ncoarse=heading
+'    neutralno=0
+'  endif
+'else
+'  tmprudder=rudder
+'  neutralno=0
+'endif
+
+'return
+
+
+'CenterRudder:
+'Center rudder in closed loop
+'adcin 4, Rudder
+'b2=0
+'tmprudder=rudder
+'if rudder>RudderNeutral then  'Rudder goes from Stb min to Port Max
+'  'Rudder is port
+'  ledstb=1
+'  gostb=1
+'  hydvalve=1
+'Else
+'  'Rudder is Starboard
+'  ledport=1
+'  goport=1
+'  hydvalve=1
+'Endif
+'while rudder<>RudderNeutral
+'  clearwdt
+'  pause 20
+'  adcin 4, rudder
+'  if rudder<>tmprudder then
+'    tmprudder=rudder
+'    b2=0
+'  endif
+'  if b2>20 then goto EndCenter 'Ror har ikke beveget seg på 400ms
+'  b2=b2+1
+'wend
+
+'EndCenter:
+'pause 200
+'clearwdt
+'adcin 4, rudder
+'tmprudder=rudder
+
+'b2=holding
+'gosub alloff
+'holding=b2
+'Return

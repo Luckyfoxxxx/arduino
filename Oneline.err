@@ -1,0 +1,2 @@
+Error : 97    Line :   5     SUB or FUNCTION must be DECLARED first [GETCOMPASS]  , in File : E:\Privat\Båt\Super Van Craft\Autopilot Software\AutoPilot Mars 2017\Oneline.bas
+Error : 46    Line :   6     Assignment error, unknown variable (DIM) [COMPASSOK: 0   0: 112]  , in File : E:\Privat\Båt\Super Van Craft\Autopilot Software\AutoPilot Mars 2017\Oneline.bas

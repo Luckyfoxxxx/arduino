@@ -1,0 +1,96 @@
+[Root]
+Most Recent Package=Standard Setup Package 1
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Package
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+
+[Package|Standard Setup Package 1|Files Added]
+
+[Package|Standard Setup Package 1|Files Removed]
+
+[Package|Standard Setup Package 1|Files In Project]
+C:\Windows\System32\msvbvm60.dll=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=Yes
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient-Monitor.exe=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\BeauGauge Software\BeauGauge Instrumentation Suite Pro\BGV2ActiveXPro.ocx=$(WinSysPath)
+C:\Program Files (x86)\Microsoft Office\root\vfs\SystemX86\FM20.DLL=$(WinSysPath)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient-Monitor.exe=$(AppPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient Monitor\Klient-Monitor.exe=Yes
+E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Klient-Monitor.exe=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=Autopilot
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Package
+ProjectFolder=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm
+ServerSideCab=
+File1=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Package\setup.exe
+File2=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Package\Setup.Lst
+File3=E:\Privat\Båt\Super Van Craft\AutoPilot-Engine-Alarm\Package\Klient-Monitor.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=Autopilot
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|Autopilot]
+Icon1=Klient-Monitor.exe
+Title1=Autopilot
+StartIn1=$(AppPath)
+Key1=Icon1

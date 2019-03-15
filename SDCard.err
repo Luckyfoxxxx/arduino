@@ -1,0 +1,2 @@
+Error : 93    Line :   2     Variable not dimensioned [CARDPRESENT]  , in File : E:\Privat\Båt\Super Van Craft\Autopilot Software\AutoPilot Mars 2017\SDCard.bas
+Error : 46    Line :   3     Assignment error, unknown variable (DIM) [GBDRIVEERROR: 0   DRIVEINIT(): 200]  , in File : E:\Privat\Båt\Super Van Craft\Autopilot Software\AutoPilot Mars 2017\SDCard.bas
